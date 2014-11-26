@@ -1,0 +1,7 @@
+emerging lib-compat 
+
+fix : 
+<Mercyful> the error msg i get is: Error while loading shared libraries:
+<Mercyful> libstdc++-libc6.2-2.so.3 cannot open shared object file: No such file or
+<Mercyful> directory.
+<Mercyful> he said... i'm using glibc6-2.3.2, i think...

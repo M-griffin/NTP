@@ -1,0 +1,47 @@
+# Project: Project1
+# Makefile created by Dev-C++ 4.9.9.0
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = Project1_private.res
+OBJ  = ansi.o server.o wincon.o global.o main.o client.o $(RES)
+LINKOBJ  = ansi.o server.o wincon.o global.o main.o client.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" ../../../../../Dev-Cpp/lib/libwsock32.a -s  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include/c++/mingw32"  -I"C:/Dev-Cpp/include/c++/backward"  -I"C:/Dev-Cpp/lib/gcc-lib/mingw32/3.2/include"  -I"C:/Dev-Cpp/include" 
+BIN  = srv.exe
+CXXFLAGS = $(CXXINCS)   -fexpensive-optimizations -O3
+CFLAGS = $(INCS)   -fexpensive-optimizations -O3
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before srv.exe all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "srv.exe" $(LIBS)
+
+ansi.o: ansi.cpp
+	$(CPP) -c ansi.cpp -o ansi.o $(CXXFLAGS)
+
+server.o: server.cpp
+	$(CPP) -c server.cpp -o server.o $(CXXFLAGS)
+
+wincon.o: wincon.cpp
+	$(CPP) -c wincon.cpp -o wincon.o $(CXXFLAGS)
+
+global.o: global.cpp
+	$(CPP) -c global.cpp -o global.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+client.o: client.cpp
+	$(CPP) -c client.cpp -o client.o $(CXXFLAGS)
+
+Project1_private.res: Project1_private.rc 
+	$(WINDRES) -i Project1_private.rc -I rc -o Project1_private.res -O coff 
