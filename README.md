@@ -1,7 +1,7 @@
-Nemesis Transfer Protocol (Win32, Linux, OS/2)
+Nemesis Transfer Protocol (NTP)
 ===
 
-Nemesis Transfer Protocol (NTP) is a file transfer client / server set
+(NTP) is a file transfer client / server set
 used with BBS Programs in Windows, Linux, and OS/2.
 
 The user would start up the user end (server) application.  Once
