@@ -17,11 +17,10 @@ void createconfig();
 
 /*--------------------------------------------------------------------------------*/
 // Parses Config File Data
-void checkcfg(std::string cfgdata);
+void checkcfg ( std::string cfgdata );
 
 /*--------------------------------------------------------------------------------*/
 // Read Config File
 void parseconfig();
 
 #endif
-

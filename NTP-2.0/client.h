@@ -5,22 +5,24 @@
 #include <winsock.h>
 
 // NTP Client Class
-class NTPCLI {
+class NTPCLI
+{
 
-    public:
-   
+public:
+
     char hostip[255];   // Holds Users IP Address
     bool dszok;         // Transfer Success/Failure
-    bool batcht;        // Batch or Single Transfer    
+    bool batcht;        // Batch or Single Transfer
     int  NODE;          // Node For FileInfo..
-    
-    //NTPCLI::NTPCLI();
-    void StreamClient(short nPort);
-    void setupbatch(char *szFile, short nPort);
 
-    private:
+    //NTPCLI::NTPCLI();
+    void StreamClient ( short nPort );
+    void setupbatch ( char *szFile, short nPort );
+
+private:
     // Link List for Holding all Batch Queue Files
-    struct ListItem {
+    struct ListItem
+    {
         std::string str;
         struct ListItem *next;
     };
@@ -28,10 +30,10 @@ class NTPCLI {
     struct ListItem *MyList1[6];         // handle to Batch queue
     void dodszlog();                     // dszlog loggin
     void clearbatchdata();               // Clears Queue
-    void addbatchdata(std::string str);       // Add to Queue
-    long resume(SOCKET sock);            // Get File Resume bytes
-    void sendfdata(SOCKET sock);         // Send File Data
-    void sendfinfo(SOCKET sock);         // Send File Info
+    void addbatchdata ( std::string str );    // Add to Queue
+    long resume ( SOCKET sock );         // Get File Resume bytes
+    void sendfdata ( SOCKET sock );      // Send File Data
+    void sendfinfo ( SOCKET sock );      // Send File Info
 
 };
 
@@ -47,4 +49,3 @@ NTPCLI::NTPCLI() {
 */
 
 #endif
-

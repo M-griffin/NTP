@@ -12,9 +12,9 @@
 /*--------------------------------------------------------------------------------*/
 typedef struct
 {
-  	char fc;
-   	char bc;
-  	char addi;
+    char fc;
+    char bc;
+    char addi;
 
 } SCREENINFO;
 
@@ -25,6 +25,6 @@ typedef struct
 
 /*--------------------------------------------------------------------------------*/
 // Main Ansi Parsing Function
-void ansiparse(char *buff);
+void ansiparse ( char *buff );
 
 #endif

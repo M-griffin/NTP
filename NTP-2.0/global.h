@@ -17,24 +17,25 @@ typedef sockaddr_in SOCKADDR_IN;
 // Protocol Version
 #define BBSVER  "V1.10B"
 
-typedef struct {
+typedef struct
+{
     char     bbsver[10];           // Client Version
     char     truename[255];        // True Filename
     char     filename[255];        // Filename
-	char     bqueue[255];          // Batch Queue 1/4 etc..
-	long int size;                 // File Size in Bytes
-	long int bRecv;                // Bytes Received
-	long int lRecv;                // Last Bytes Received
-	long int bSec;                 // Bytes Received Each Second
-	long int speed;                // Transfer Speed
-	char     status[50];           // Transfer Status
+    char     bqueue[255];          // Batch Queue 1/4 etc..
+    long int size;                 // File Size in Bytes
+    long int bRecv;                // Bytes Received
+    long int lRecv;                // Last Bytes Received
+    long int bSec;                 // Bytes Received Each Second
+    long int speed;                // Transfer Speed
+    char     status[50];           // Transfer Status
     bool     InUse;                // Node is in Use
     bool     resum;                // Resume True/ flase
     long     flsz;    	           // Local Filesize for Resume
-  	
-	struct sockaddr_in their_addr; // Hold Remote Hosts IP Address
-	
-}FILEINFO;
+
+    struct sockaddr_in their_addr; // Hold Remote Hosts IP Address
+
+} FILEINFO;
 
 // 0 for Downlaods 1 for Uploads
 extern FILEINFO finfo  [2][6];    // Handle to File Info
@@ -42,7 +43,8 @@ extern FILEINFO finfo2 [2][6];    // Handle to File Info After Tranfer, Message 
 extern bool     erbreak[2][6];    // break out of transfer gui
 extern short    PORT;
 
-enum NODESTATE {
+enum NODESTATE
+{
     NodeWindow, // = 0
     DLNode1,    // = 1
     DLNode2,    // = 2
@@ -57,7 +59,8 @@ enum NODESTATE {
     MidState    // = 11
 };
 
-enum NWINBAR {
+enum NWINBAR
+{
     SNOOP,      // = 0
     CONNECT,    // = 1
     CONFIG,     // = 2
@@ -91,17 +94,17 @@ extern char *aBuf4;
 
 
 // Prototypes
-double percentage(long double wk, long double pk);
+double percentage ( long double wk, long double pk );
 
 void refreshbar();
-void NodeGUI( int port );
+void NodeGUI ( int port );
 
 #ifdef _WIN32
-void TransferGUI( void *p );
-void input( void *p );
-void InputThreadProc( void *dummy );
+void TransferGUI ( void *p );
+void input ( void *p );
+void InputThreadProc ( void *dummy );
 #else
-void *TransferGUI( void *p );
+void *TransferGUI ( void *p );
 #endif
 
 #endif
